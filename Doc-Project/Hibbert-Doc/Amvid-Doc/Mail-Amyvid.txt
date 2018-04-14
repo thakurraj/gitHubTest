@@ -1,0 +1,51 @@
+Date:4/5/2017
+Subject: Amyvid 2.0 Sprint 2.0
+Hi Shaun – can you please advise in the morning?  If what they’re asking for isn’t possible please let me know.
+
+Also, here are more Avant suggestions as well, but their mockups do not have an iFrame, ours do.  So I’m not sure if they will help us.
+
+Desktop body width = 100% and remove 8px margin (0 pixel margin)
+Desktop iframe = 100vh height/min-height
+ 
+iPad body width= 1024px and remove 8px margin (0 pixel margin)
+iPad iframe = 105vh height/min-height
+=============================================
+select * from SS_USER_CASE_INFO where PERSON_ID=171266;
+787883ae-14d1-4073-a5ce-4f99d2539e73 A. Positive correct
+
+5/6/2017
+
+4/5/2017 
+updateCourseProgressItem: function(currentSlideIndex) {
+		var courseprogressitem = jQuery("#courseprogresscontents div[data-index=" + currentSlideIndex + "]")
+		var courseprogresssection = courseprogressitem.parent();
+
+		courseprogressitem.removeClass("progressitemincomplete").addClass("progressitemcomplete");
+
+		if (courseprogresssection.children().last().data("index") == courseprogressitem.data("index")) {
+			courseprogresssection.parent().removeClass("progresstitleincomplete").addClass("progresstitlecomplete");
+		}
+	},
+	
+	
+5/5/2017
+	updateCourseProgressItem: function(currentSlide, currentSlideIndex) {
+		// If slide has a question and it hasn't been answered correctly, don't update.
+		if (currentSlide.hasOwnProperty("questionindex")) {
+			var question = this.currentModuleData.questions[currentSlide.questionindex];
+			if (question.timeToCorrectResponse == null)
+			{
+				return false;
+			}
+		}
+		
+		currentSlide.complete = true;		
+		var courseprogressitem = jQuery("#courseprogresscontents div[data-index=" + currentSlideIndex + "]")
+		var courseprogresssection = courseprogressitem.parent();
+
+		courseprogressitem.removeClass("progressitemincomplete").addClass("progressitemcomplete");
+
+		if (courseprogresssection.children().last().data("index") == courseprogressitem.data("index")) {
+			courseprogresssection.parent().removeClass("progresstitleincomplete").addClass("progresstitlecomplete");
+		}
+	},
